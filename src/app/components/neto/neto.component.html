@@ -1,0 +1,59 @@
+<!-- <div class="container">
+  <h1>Neto Mass Calculator</h1>
+  <form (ngSubmit)="calculateMass()">
+    <div class="form-group">
+      <label for="brutoMass">Bruto Mass (kg):</label>
+      <input
+        type="number"
+        id="brutoMass"
+        [(ngModel)]="brutoMass"
+        name="brutoMass"
+        class="form-control"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="numCrates">Number of Crates:</label>
+      <input
+        type="number"
+        id="numCrates"
+        [(ngModel)]="numCrates"
+        name="numCrates"
+        class="form-control"
+        required
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Calculate</button>
+  </form>
+
+  <div *ngIf="netoMass !== null && massOfCrates !== null" class="results">
+    <h2>Results</h2>
+    <p><strong>Neto Mass:</strong> {{ netoMass }} kg</p>
+    <p><strong>Mass of Crates:</strong> {{ massOfCrates }} kg</p>
+  </div>
+</div> -->
+
+<div class="wrapper">
+  <div class="user-input">
+    <form [formGroup]="calculateForm" (ngSubmit)="onSubmit()">
+      <input
+        type="number"
+        placeholder="Bruto Masa"
+        formControlName="brutoMass"
+      />
+      <input
+        type="number"
+        placeholder="Broj gajbi"
+        formControlName="numberOfCrades"
+      />
+      <div class="submit-button-div">
+        <button (click)="resetForm()">Resetuj Unos</button>
+        <button type="submit">Izracunaj</button>
+      </div>
+    </form>
+  </div>
+  <div class="calculation-output">
+    <h2>Neto Masa: {{ netoMass }}</h2>
+    <h2>Tezina Gajbica: {{ cradesWeight }}</h2>
+  </div>
+</div>
