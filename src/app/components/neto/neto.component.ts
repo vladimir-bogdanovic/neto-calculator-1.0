@@ -1,5 +1,5 @@
 import { NgIf } from '@angular/common';
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -16,16 +16,6 @@ import {
   styleUrl: './neto.component.css',
 })
 export class NetoComponent implements OnInit {
-  // brutoMass: number = 0;
-  // numCrates: number = 0;
-  // netoMass: number | null = null;
-  // massOfCrates: number | null = null;
-  // calculateMass(): void {
-  //   const crateWeight = 0.4; // weight of one crate in kg
-  //   this.massOfCrates = this.numCrates * crateWeight;
-  //   this.netoMass = this.brutoMass - this.massOfCrates;
-  // }
-
   constructor() {}
 
   calculateForm!: FormGroup;
@@ -42,20 +32,16 @@ export class NetoComponent implements OnInit {
   }
 
   onSubmit() {
-    // this.cradesWeight =
-    //   this.calculateForm.value.numberOfCrades * this.cradeWeight;
-    // this.netoMass = this.calculateForm.value.brutoMass - this.cradesWeight;
     this.cradesWeight = parseFloat(
       (this.calculateForm.value.numberOfCrades * this.cradeWeight).toFixed(2)
     );
     this.netoMass = parseFloat(
       (this.calculateForm.value.brutoMass - this.cradesWeight).toFixed(2)
     );
-
-    //this.calculateForm.reset();
   }
 
   resetForm() {
+    console.log('asd');
     this.calculateForm.reset();
   }
 }
